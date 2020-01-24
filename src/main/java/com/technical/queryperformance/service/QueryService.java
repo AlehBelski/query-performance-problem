@@ -1,6 +1,7 @@
 package com.technical.queryperformance.service;
 
 import com.technical.queryperformance.configuration.CustomProperties;
+import com.technical.queryperformance.exception.QueryExecutionException;
 import com.technical.queryperformance.model.ExecutionResponseDTO;
 import com.technical.queryperformance.model.QueryDTO;
 import com.technical.queryperformance.service.measurement.MeasurementService;
@@ -30,7 +31,7 @@ public class QueryService {
         executorService = Executors.newFixedThreadPool(jdbcTemplates.size());
     }
 
-    public List<ExecutionResponseDTO> measureTheExecutionTime(List<QueryDTO> queryList) { //fixme add exception?
+    public List<ExecutionResponseDTO> measureTheExecutionTime(List<QueryDTO> queryList) {
         List<ExecutionResponseDTO> responseDTOS = new ArrayList<>();
 
         List<Callable<ExecutionResponseDTO>> tasks = prepareListOfTasks(queryList);
@@ -41,7 +42,7 @@ public class QueryService {
                 responseDTOS.add(future.get());
             }
         } catch (InterruptedException | ExecutionException e) {
-            //fixme add handler
+            throw new QueryExecutionException(e);
         }
 
         return responseDTOS;

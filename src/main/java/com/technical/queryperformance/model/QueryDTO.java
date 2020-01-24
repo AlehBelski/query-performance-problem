@@ -1,5 +1,7 @@
 package com.technical.queryperformance.model;
 
+import java.util.Objects;
+
 //fixme add javadoc
 public class QueryDTO {
     private String query;
@@ -10,5 +12,18 @@ public class QueryDTO {
 
     public void setQuery(String query) {
         this.query = query;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        QueryDTO queryDTO = (QueryDTO) o;
+        return Objects.equals(query, queryDTO.query);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(query);
     }
 }

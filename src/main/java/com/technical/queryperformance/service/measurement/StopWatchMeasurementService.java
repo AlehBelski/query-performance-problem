@@ -9,7 +9,7 @@ public class StopWatchMeasurementService implements MeasurementService {
 
     @Override
     public long measureAverageTime(String query, JdbcTemplate template, int numberOfExecutions) {
-        template.execute(query); //warm up and validate connection?
+        template.execute(query); //warm up
 
         long averageTime = 0L;
         StopWatch stopWatch = new StopWatch();

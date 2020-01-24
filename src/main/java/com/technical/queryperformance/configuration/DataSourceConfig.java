@@ -13,6 +13,8 @@ import java.util.Map;
 @Configuration
 public class DataSourceConfig {
 
+    private static final int MAX_CONNECTIONS = 1;
+
     @Bean
     public Map<String, JdbcTemplate> jdbcTemplates(DatabasePropertiesList properties) {
         Map<String, JdbcTemplate> jdbcTemplates = new HashMap<>();
@@ -20,6 +22,8 @@ public class DataSourceConfig {
         List<DatabaseProperties> databaseProperties = properties.getDataBases();
         for (DatabaseProperties property : databaseProperties) {
             JdbcTemplate template = new JdbcTemplate(prepareDataSource(property));
+            template.setIgnoreWarnings(false);
+
             jdbcTemplates.put(property.getDbName(), template);
         }
 
@@ -32,7 +36,7 @@ public class DataSourceConfig {
         dataSource.setJdbcUrl(properties.getUrl());
         dataSource.setUsername(properties.getUserName());
         dataSource.setPassword(properties.getPassword());
-        dataSource.setMaximumPoolSize(1);
+        dataSource.setMaximumPoolSize(MAX_CONNECTIONS);
 
         return dataSource;
     }
