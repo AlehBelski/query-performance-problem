@@ -2,7 +2,9 @@ package com.technical.queryperformance.model;
 
 import java.util.Objects;
 
-//fixme add javadoc
+/**
+ * The class containing the passed query.
+ */
 public class QueryDTO {
     private String query;
 

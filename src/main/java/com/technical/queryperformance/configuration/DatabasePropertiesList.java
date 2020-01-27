@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The class which contains all database properties from /resources/application.properties file.
+ */
 @Component
 @ConfigurationProperties("list")
 public class DatabasePropertiesList {

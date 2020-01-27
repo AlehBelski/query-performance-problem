@@ -1,5 +1,8 @@
 package com.technical.queryperformance.configuration;
 
+/**
+ * The class which contains all necessary information about the connection to a database.
+ */
 public class DatabaseProperties {
     private String url;
     private String userName;

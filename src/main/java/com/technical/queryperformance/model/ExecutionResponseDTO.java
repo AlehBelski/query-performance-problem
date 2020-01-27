@@ -2,6 +2,9 @@ package com.technical.queryperformance.model;
 
 import java.util.Objects;
 
+/**
+ * The class providing information about the returned response.
+ */
 public class ExecutionResponseDTO {
     private String database;
     private String query;

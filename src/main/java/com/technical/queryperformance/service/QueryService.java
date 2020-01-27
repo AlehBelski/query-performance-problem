@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
+/**
+ * The service with main logic of query performance.
+ */
 @Service
 public class QueryService {
 
@@ -31,6 +34,12 @@ public class QueryService {
         executorService = Executors.newFixedThreadPool(jdbcTemplates.size());
     }
 
+    /**
+     * Measure and prepare the response with the average execution time of the passed list of queries.
+     *
+     * @param queryList the list of queries to measure.
+     * @return the list of average time per query.
+     */
     public List<ExecutionResponseDTO> measureTheExecutionTime(List<QueryDTO> queryList) {
         List<ExecutionResponseDTO> responseDTOS = new ArrayList<>();
 
@@ -48,6 +57,12 @@ public class QueryService {
         return responseDTOS;
     }
 
+    /**
+     * Prepare the list of tasks that will be executed against the databases.
+     *
+     * @param queryList the passed queries from the request.
+     * @return the list of {@link Callable} to execute.
+     */
     private List<Callable<ExecutionResponseDTO>> prepareListOfTasks(List<QueryDTO> queryList) {
         List<Callable<ExecutionResponseDTO>> tasks = new ArrayList<>();
         int numberOfExecutions = properties.getExecutionNumber();

@@ -1,6 +1,8 @@
 package com.technical.queryperformance.exception;
 
-//todo add javadoc
+/**
+ * The exception that will be thrown in the case when the passed body doesn't contain the list of queries.
+ */
 public class BlankQueryRequestException extends RuntimeException {
     public BlankQueryRequestException() {
         super();

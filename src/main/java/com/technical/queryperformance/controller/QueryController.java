@@ -15,7 +15,10 @@ import java.util.List;
 import static com.technical.queryperformance.util.QueryValidationUtil.validateElementsNotNullOrEmpty;
 import static com.technical.queryperformance.util.QueryValidationUtil.validateQueriesArePresent;
 
-//fixme add javadoc
+/**
+ * The Rest controller that handle the request to /performance end-point.
+ * It contains method to measure the query execution time.
+ */
 @RestController
 @RequestMapping("/performance")
 public class QueryController {
@@ -23,6 +26,12 @@ public class QueryController {
     @Autowired
     private QueryService service;
 
+    /**
+     * POST methods which allow to measure the execution time of the passed queries.
+     *
+     * @param queryList the passed list of queries.
+     * @return the list of execution time of the queries passed in the request.
+     */
     @PostMapping(path = "/measure",
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ExecutionResponseDTO> measureTheExecutionTime(@RequestBody List<QueryDTO> queryList) {

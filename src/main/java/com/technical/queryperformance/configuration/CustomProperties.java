@@ -3,6 +3,9 @@ package com.technical.queryperformance.configuration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * The class which contains all custom properties from /resources/application.properties file.
+ */
 @Component
 @ConfigurationProperties("custom")
 public class CustomProperties {

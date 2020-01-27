@@ -1,6 +1,8 @@
 package com.technical.queryperformance.exception;
 
-//todo add javadoc
+/**
+ * The exception that will be thrown in the case when any of the passed queries are null or empty.
+ */
 public class InvalidQueryException extends RuntimeException {
     public InvalidQueryException() {
         super();

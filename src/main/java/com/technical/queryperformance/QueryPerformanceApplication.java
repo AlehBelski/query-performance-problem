@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-//TODO add tests,readme and javadoc
+/**
+ * The main class which allow to run the application.
+ */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class QueryPerformanceApplication {
 

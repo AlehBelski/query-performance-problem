@@ -4,6 +4,9 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+/**
+ * The service the measure the average time based on {@link StopWatch} library.
+ */
 @Service
 public class StopWatchMeasurementService implements MeasurementService {
 
