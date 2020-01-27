@@ -72,3 +72,12 @@ POST localhost:8080/performance/measure
     }
 ]
 ```
+
+## Points to improve
+* Embedded database for integration tests
+* More custom errors to handle different cases
+* Add possibility to choose a measurement mechanism
+* Add end-point to make a call to only one database
+* Add end-point to download archive with the result
+* Add new end-point to read the result by id(in case of many queries were submitted)
+* Add behavior to continue the processing if one of the databases is shut down.
