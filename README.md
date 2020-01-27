@@ -74,7 +74,7 @@ POST localhost:8080/performance/measure
 ```
 
 ## Points to improve
-* Embedded database for integration tests
+* Move init sql scripts to a separate file and run before integration-tests
 * More custom errors to handle different cases
 * Add possibility to choose a measurement mechanism
 * Add end-point to make a call to only one database
